@@ -12,3 +12,5 @@ To run, simply open the notebooks from within an Jupyter/IJulia environment. You
 * Distributions.jl (for generating data for the portfolio problem)
 * Any QP solver interface, e.g. Gurobi.jl
 * Ipopt.jl
+
+Static versions (i.e. no executable code) of the [portfolio](http://nbviewer.ipython.org/github/mlubin/JuMPSupplement/blob/master/notebooks/portfolio.ipynb) and [rocket](http://nbviewer.ipython.org/github/mlubin/JuMPSupplement/blob/master/notebooks/rocket.ipynb) notebooks can be viewed online via the nbviewer service.
