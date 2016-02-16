@@ -6,7 +6,6 @@ model = ConcreteModel()
 model.flow = Var(edges, bounds=lambda m,i,j: (0,capacity[(i,j)]))
 model.flowcost = Objective( expr=sum(cost[e]*model.flow[e] for e in edges))
 model.unitflow = Constraint(expr=sum(model.flow[e] for e in edges if e[1]==5) == 1)
-def flowcon_rule(model,n):
-  return sum(model.flow[e] for e in edges if e[1]==n) == \
+def flowcon_rule(model,n): return sum(model.flow[e] for e in edges if e[1]==n) == \
            sum(model.flow[e] for e in edges if e[0]==n)
 model.flowcon = Constraint([2,3,4],rule=flowcon_rule)
