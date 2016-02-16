@@ -6,7 +6,7 @@ Installation instructions:
 The benchmarks depend on the following commercial software packages which must be installed separately:
 - AMPL 20141228
 - GAMS 24.3.3 
-- Gurobi 6.0.0
+- Gurobi 6.5.0
 - MATLAB R2014b
 
 Additionally, users should install:
