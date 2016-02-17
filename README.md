@@ -7,11 +7,11 @@ The benchmarks depend on the following commercial software packages which must b
 - AMPL 20160207
 - GAMS 24.6.1 
 - Gurobi 6.5.0
-- MATLAB R2014b
+- MATLAB R2015b
 
 Additionally, users should install:
 - [CVX 2.1 with Gurobi](http://cvxr.com/cvx/doc/gurobi.html)
-- [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Tutorials.Installation) 20150204
+- [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Tutorials.Installation) 20150918
 - [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoInstallGuide.html) 4.2.10784 with Python 2.7.11
 - [Julia](http://julialang.org/downloads/) 0.4.3
 - [Ipopt](https://projects.coin-or.org/Ipopt) 3.12.1
