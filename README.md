@@ -13,7 +13,7 @@ Additionally, users should install:
 - [CVX 2.1 with Gurobi](http://cvxr.com/cvx/doc/gurobi.html)
 - [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Tutorials.Installation) 20150204
 - [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoInstallGuide.html) 4.0.0 with Python 2.7.9
-- [Julia](http://julialang.org/downloads/) 0.3.7
+- [Julia](http://julialang.org/downloads/) 0.4.3
 - [Ipopt](https://projects.coin-or.org/Ipopt) 3.12.1
 
 For timing, we use the ``ts`` command-line utility. On Ubuntu Linux, ``ts`` is provided by the ``moreutils`` package.
