@@ -17,7 +17,7 @@ julia facility.jl 25 25 | ts -s "%.s"
 
 ```
 export LD_LIBRARY_PATH=$GUROBI_HOME/lib/
-clang++ -O2 facility.cpp -o facility -I$GUROBI_HOME/include/ -L$GUROBI_HOME/lib/  -lgurobi_c++ -lgurobi60 -stdlib=libstdc++ -std=c++11
+clang++ -O2 facility.cpp -o facility -I$GUROBI_HOME/include/ -L$GUROBI_HOME/lib/  -lgurobi_c++ -lgurobi65 -stdlib=libstdc++ -std=c++11
 ./facility 25 25 | ts -s "%.s"
 ```
 
