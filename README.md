@@ -12,7 +12,7 @@ The benchmarks depend on the following commercial software packages which must b
 Additionally, users should install:
 - [CVX 2.1 with Gurobi](http://cvxr.com/cvx/doc/gurobi.html)
 - [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php?n=Tutorials.Installation) 20150204
-- [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoInstallGuide.html) 4.0.0 with Python 2.7.9
+- [Pyomo](https://software.sandia.gov/downloads/pub/pyomo/PyomoInstallGuide.html) 4.2.10784 with Python 2.7.11
 - [Julia](http://julialang.org/downloads/) 0.4.3
 - [Ipopt](https://projects.coin-or.org/Ipopt) 3.12.1
 
