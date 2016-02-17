@@ -4,7 +4,7 @@ Repository containing supplementary materials and code for "JuMP: A Modeling Lan
 Installation instructions:
 
 The benchmarks depend on the following commercial software packages which must be installed separately:
-- AMPL 20141228
+- AMPL 20160207
 - GAMS 24.3.3 
 - Gurobi 6.5.0
 - MATLAB R2014b
