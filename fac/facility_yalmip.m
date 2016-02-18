@@ -18,6 +18,15 @@ for i = 0:G
 end
 toc
 
+% An alternative formulation was suggested by the creator
+% of YALMIP. We did not consider it as, while the most it
+% is the most efficient, it bears little resemblance to
+% the original mathematical formulation and so somewhat
+% defeats the purpose of an AML.
+% a = repmat([i/G;j/G],1,G) - y';
+% b = -2*sqrt(2)*(1 - z(i+1,j+1,:));
+% C = [C,cone([b(:)'+d;a])];
+
 options = sdpsettings('solver','gurobi');
 optimize(C,d,options);
 
