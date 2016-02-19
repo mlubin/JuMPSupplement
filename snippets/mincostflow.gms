@@ -1,7 +1,5 @@
-SET nodes /n1*n5/;
-ALIAS(nodes,nodefrom,nodeto);
-SET midnodes(nodes) /n2*n4/;
-SET lastnode(nodes) /n5/;
+SET nodes /n1*n5/; SET midnodes(nodes) /n2*n4/; SET lastnode(nodes) /n5/;
+ALIAS(nodes,nodefrom,nodeto,n);
 SET edges(nodes,nodes) / n1 . n2
                          n1 . n3
                          n1 . n4
@@ -24,12 +22,12 @@ VARIABLE flow(nodefrom,nodeto), z;
 flow.LO(edges) = 0;
 flow.UP(edges) = cap(edges);
 EQUATION flowcost;
-flowcost.. z =e= sum(edges, cost(edges) * flow(edges));
+flowcost.. z =e= sum{edges, cost(edges) * flow(edges)};
 EQUATION unitflow;
-unitflow.. 1 =e= sum((nodefrom,lastnode)$edges(nodefrom,lastnode), flow(nodefrom,lastnode));
-EQUATION flowcon(midnodes);
-flowcon(midnodes).. sum(nodefrom$edges(nodefrom,midnodes), flow(nodefrom,midnodes)) =e= 
-                         sum(nodeto$edges(midnodes,nodeto), flow(midnodes,nodeto));
+unitflow.. 1 =e= sum{edges(nodefrom,lastnode), flow(nodefrom,lastnode)};
+EQUATION flowcon(nodes);
+flowcon(midnodes(n)).. sum(edges(nodefrom,n), flow(nodefrom,n)) =e= 
+                         sum(edges(n,nodeto), flow(n,nodeto));
 MODEL mincostflow /all/;
 SOLVE mincostflow USING lp MINIMIZING z;
 
