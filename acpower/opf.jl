@@ -43,7 +43,7 @@ function opf(bus, branch,
     branch_tap_min, branch_tap_max,
     p_gen_upper, p_gen_lower)
 
-    mod = Model(solver=IpoptSolver(max_iter=3))
+    mod = Model(solver=IpoptSolver(max_iter=3),simplify_nonlinear_expressions=true)
 
     nbus = length(bus)
     nbranch = length(branch)
@@ -65,24 +65,24 @@ function opf(bus, branch,
         @assert 1 <= b.to <= nbus
     end
 
-    @defNLExpr(Gself[k=1:nbus],
+    @defNLExpr(mod, Gself[k=1:nbus],
         bus[k].g_shunt +
         sum{branch[i].g*branch_tap[i]^2, i=out_lines[k]} +
         sum{ branch[i].g, i=in_lines[k]})
 
-    @defNLExpr(Gout[i=1:nbranch],
+    @defNLExpr(mod, Gout[i=1:nbranch],
         (-branch[i].g*cos(branch_def[i])+branch[i].b*sin(branch_def[i]))*branch_tap[i])
-    @defNLExpr(Gin[i=1:nbranch],
+    @defNLExpr(mod, Gin[i=1:nbranch],
         (-branch[i].g*cos(branch_def[i])-branch[i].b*sin(branch_def[i]))*branch_tap[i])
 
-    @defNLExpr(Bself[k=1:nbus],
+    @defNLExpr(mod, Bself[k=1:nbus],
         bus_b_shunt[k] +
         sum{branch[i].b*branch_tap[i]^2 + branch[i].c/2, i=out_lines[k]} +
         sum{ branch[i].b + branch[i].c/2, i=in_lines[k]})
 
-    @defNLExpr(Bin[i=1:nbranch],
+    @defNLExpr(mod, Bin[i=1:nbranch],
         (branch[i].g*sin(branch_def[i])-branch[i].b*cos(branch_def[i]))*branch_tap[i])
-    @defNLExpr(Bout[i=1:nbranch],
+    @defNLExpr(mod, Bout[i=1:nbranch],
         (-branch[i].g*sin(branch_def[i])-branch[i].b*cos(branch_def[i]))*branch_tap[i])
 
     # Minimize active power
