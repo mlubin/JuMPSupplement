@@ -27,55 +27,45 @@ $ source venv/bin/activate
 $ pip install pyomo
 
 (venv)$ pyomo --version
-Pyomo 4.0.9682 (CPython 2.7.8 on Linux 3.16.0-29-generic)
+Pyomo 4.2.10784 (CPython 2.7.11 on Linux 4.4.1-2-ARCH)
 ```
 
 *Installation instructions for Julia:*
 
-We recommend reproducing the experiments with the exact version of Julia used here. If binaries for version 0.3.7 are no longer available, one can build Julia from source as follows:
+We recommend reproducing the experiments with the exact version of Julia used here. If binaries for version 0.4.3 are no longer available, one can build Julia from source as follows:
 ```
 $ git clone git://github.com/JuliaLang/julia.git
 $ cd julia
-$ git checkout v0.3.7
+$ git checkout v0.4.3
 $ make
 ```
 
 Unfortunately, the build process relies on many external packages and URLs. It cannot be expected to work indefinitely, even if github.com remains available.
 
 Once Julia is installed, we require the following Julia packages:
-- [JuMP](https://github.com/JuliaOpt/JuMP.jl) 0.9.0
-- [ReverseDiffSparse](https://github.com/mlubin/ReverseDiffSparse.jl) 0.2.7
-- [Gurobi.jl](https://github.com/JuliaOpt/Gurobi.jl) 0.1.26
-- [Ipopt.jl](https://github.com/JuliaOpt/Ipopt.jl) 0.1.14
+- [JuMP](https://github.com/JuliaOpt/JuMP.jl) 0.12.0
+- [ReverseDiffSparse](https://github.com/mlubin/ReverseDiffSparse.jl) 0.5.3
+- [Gurobi.jl](https://github.com/JuliaOpt/Gurobi.jl) 0.2.1
+- [Ipopt.jl](https://github.com/JuliaOpt/Ipopt.jl) 0.2.1
 
 You should force the use of particular versions of these Julia packages with
 ```
-julia> Pkg.pin("JuMP", v"0.9.0")
-julia> Pkg.pin("ReverseDiffSparse", v"0.2.7")
-julia> Pkg.pin("Gurobi", v"0.1.26")
-julia> Pkg.pin("Ipopt", v"0.1.14")
+julia> Pkg.pin("JuMP", v"0.12.0")
+julia> Pkg.pin("ReverseDiffSparse", v"0.5.3")
+julia> Pkg.pin("Gurobi", v"0.2.1")
+julia> Pkg.pin("Ipopt", v"0.2.1")
 ```
-
-We take advantage of the precompilation features of Julia in order to reduce the startup times.
-In order to reproduce our timings, you should build Julia from source, install
-the required packages, and then create a file in the ``base`` directory named
-``userimg.jl`` with the following content:
-```
-Base.require("JuMP")
-Base.require("Ipopt")
-Base.require("Gurobi")
-```
-Then run ``make clean`` and ``make`` again in the top-level julia directory.
 
 For the nonlinear tests, you should add ``ipopt`` compiled with ASL to your path.
 On Linux, you can just use the Ipopt binary from Julia:
 
 ```
-export PATH=$PATH:$HOME/.julia/v0.3/Ipopt/deps/usr/bin
+export PATH=$PATH:$HOME/.julia/v0.4/Ipopt/deps/usr/bin
 ```
 
 See the individual directories for further instructions.
 
 Change log:
 
+    Feburary 2016: Update for first paper revision. Newer versions of all packages.
     April 2015: Initial version
