@@ -1,3 +1,4 @@
+#define _GLIBCXX_USE_CXX11_ABI 0
 #include "gurobi_c++.h"
 #include <cmath>
 #include <cstdlib>

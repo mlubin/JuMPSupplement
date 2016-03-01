@@ -232,6 +232,7 @@ obj_def.. obj =e= sum(bus_k$(bus_type(bus_k) ne 0), sqr(bus_p_load(bus_k) +
 
 
 MODEL acpower /all/;
+acpower.holdfixed = 1;
 OPTION nlp=ipopt;
 OPTION iterlim=3;
 OPTION solvelink=5;

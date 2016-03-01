@@ -40,4 +40,4 @@ function clnlbeam(N, solver)
 
 end
 
-clnlbeam(parseint(ARGS[1]),IpoptSolver(max_iter=3))
+clnlbeam(parse(Int,ARGS[1]),IpoptSolver(max_iter=3))

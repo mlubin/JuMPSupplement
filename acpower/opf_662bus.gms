@@ -214,7 +214,7 @@ branch_def.FX(br)$(branch_type(br) ne 4) = -branch_def0(br) * 3.14159/180;
 
 VARIABLE obj;
 EQUATION obj_def;
-obj_def.. obj =e= sum(bus_k$(bus_type(bus_k) ne 0), sqr(bus_p_load(bus_k) + 
+obj_def.. obj =e= sum(bus_k$(bus_type(bus_k) ne 0), sqr(bus_p_load(bus_k) +
     sum((br,bus_i)$(branch_dest(br,bus_k) and branch_orig(br,bus_i)),
         bus_voltage(bus_k) * bus_voltage(bus_i) *
             (Gin(br) * cos(bus_angle(bus_k) - bus_angle(bus_i)) +
@@ -232,6 +232,14 @@ obj_def.. obj =e= sum(bus_k$(bus_type(bus_k) ne 0), sqr(bus_p_load(bus_k) +
 
 
 MODEL acpower /all/;
+* *******************
+* This flag treats fixed variables as constants in function
+* evaluations. Its use was suggested by Alex Meeraus of GAMS
+* after the initial version of the paper was made available
+* online, and has a dramatic effect on the performance of
+* GAMS on this problem.
+* *******************
+acpower.holdfixed = 1;
 OPTION nlp=ipopt;
 OPTION iterlim=3;
 OPTION solvelink=5;

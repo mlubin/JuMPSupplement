@@ -43,10 +43,11 @@ To generate the YALMIP nonlinear model, start MATLAB and run the ``doyalmip`` sc
 
 ```
 $ matlab -nodisplay
-                                         < M A T L A B (R) >
-                               Copyright 1984-2014 The MathWorks, Inc.
-                                R2014b (8.4.0.150421) 64-bit (glnxa64)
-                                          September 15, 2014
+
+                                < M A T L A B (R) >
+                      Copyright 1984-2015 The MathWorks, Inc.
+                       R2015b (8.6.0.267246) 64-bit (glnxa64)
+                                  August 20, 2015
 
 >> doyalmip
 ```

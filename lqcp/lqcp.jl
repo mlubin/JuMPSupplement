@@ -42,4 +42,4 @@ function test_cont5(n)
     solve(mod)
 end
 
-test_cont5(int(ARGS[1]))
+test_cont5(parse(Int,ARGS[1]))

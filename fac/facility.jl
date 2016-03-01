@@ -39,11 +39,11 @@ function solve_facility(G, F)
 end
 
 # Customers lie in the unit square on a G by G grid
-G = int(ARGS[1])
+G = parse(Int,ARGS[1])
 @show G
 
 # Number of facilities
-F = int(ARGS[2])
+F = parse(Int,ARGS[2])
 @show F
 
 solve_facility(G, F)
